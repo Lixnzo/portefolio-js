@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - BTS SIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+        .breadcrumb-nav {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+        .veille-article {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .veille-article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .article-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .article-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .article-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .article-tag {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid #e9ecef;
+        }
+        .article-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .article-link:hover {
+            color: var(--primary-color);
+        }
+        .filter-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        .filter-btn {
+            margin: 0.25rem;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .tools-section {
+            background: var(--bg-light);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        .tool-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .tool-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Admin Réseau</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e5.html">E5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e6.html">E6</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="veille.html">Veille</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active text-white">Veille Technologique</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3">Veille Technologique</h1>
+            <p class="lead">Suivi des dernières tendances et innovations dans le domaine de l'administration réseau et de la cybersécurité</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="filter-section">
+                <h3 class="mb-4">Filtrer par thème</h3>
+                <div class="d-flex flex-wrap">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="reseau">Réseau</button>
+                    <button class="filter-btn" data-filter="securite">Cybersécurité</button>
+                    <button class="filter-btn" data-filter="virtualisation">Virtualisation</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud</button>
+                    <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Article 1 -->
+                    <div class="veille-article" data-category="securite">
+                        <div class="article-header">
+                            <h3 class="article-title">Les nouvelles menaces de cybersécurité en 2024</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 15 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : ZDNet - Cybersécurité
+                        </div>
+                        <p class="article-description">
+                            Analyse approfondie des nouvelles menaces de cybersécurité qui émergent en 2024, 
+                            notamment les attaques par IA, les ransomwares ciblant les infrastructures critiques, 
+                            et les nouvelles techniques d'ingénierie sociale. L'article présente également les 
+                            meilleures pratiques pour se protéger contre ces menaces.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Cybersécurité</span>
+                            <span class="article-tag">Menaces</span>
+                            <span class="article-tag">2024</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="veille-article" data-category="reseau">
+                        <div class="article-header">
+                            <h3 class="article-title">Wi-Fi 7 : La prochaine révolution du réseau sans fil</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 10 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Network World
+                        </div>
+                        <p class="article-description">
+                            Présentation détaillée du nouveau standard Wi-Fi 7 (802.11be) et de ses améliorations 
+                            par rapport au Wi-Fi 6. L'article couvre les nouvelles fonctionnalités comme le multi-link 
+                            operation, les canaux 320 MHz, et les améliorations de latence. Analyse de l'impact 
+                            pour les entreprises et les administrateurs réseau.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Wi-Fi</span>
+                            <span class="article-tag">Réseau</span>
+                            <span class="article-tag">Innovation</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="veille-article" data-category="cloud">
+                        <div class="article-header">
+                            <h3 class="article-title">Migration vers le cloud hybride : Stratégies et bonnes pratiques</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 5 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : TechRepublic
+                        </div>
+                        <p class="article-description">
+                            Guide complet sur les stratégies de migration vers le cloud hybride. L'article aborde 
+                            les différents modèles de déploiement, les considérations de sécurité, les coûts, 
+                            et les meilleures pratiques pour une migration réussie. Retours d'expérience d'entreprises 
+                            ayant effectué cette transition.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Cloud</span>
+                            <span class="article-tag">Migration</span>
+                            <span class="article-tag">Stratégie</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="veille-article" data-category="virtualisation">
+                        <div class="article-header">
+                            <h3 class="article-title">VMware vSphere 8 : Nouvelles fonctionnalités et améliorations</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 28 Février 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : VMware Blog
+                        </div>
+                        <p class="article-description">
+                            Découverte des nouvelles fonctionnalités de VMware vSphere 8, notamment les améliorations 
+                            de performance, la nouvelle interface utilisateur, les fonctionnalités de sécurité renforcées, 
+                            et l'intégration améliorée avec les solutions cloud. Guide de migration depuis vSphere 7.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">VMware</span>
+                            <span class="article-tag">Virtualisation</span>
+                            <span class="article-tag">vSphere 8</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 5 -->
+                    <div class="veille-article" data-category="securite">
+                        <div class="article-header">
+                            <h3 class="article-title">Zero Trust : Implémentation dans les infrastructures réseau</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 20 Février 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : CSO Online
+                        </div>
+                        <p class="article-description">
+                            Approfondissement du modèle Zero Trust et de son application dans les infrastructures réseau. 
+                            L'article explique comment mettre en place une architecture Zero Trust, les outils nécessaires, 
+                            et les défis à surmonter. Cas d'usage et retours d'expérience d'organisations ayant adopté 
+                            cette approche.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Zero Trust</span>
+                            <span class="article-tag">Sécurité</span>
+                            <span class="article-tag">Architecture</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 6 -->
+                    <div class="veille-article" data-category="ia">
+                        <div class="article-header">
+                            <h3 class="article-title">L'IA dans la gestion réseau : Automatisation et optimisation</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 15 Février 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Network Computing
+                        </div>
+                        <p class="article-description">
+                            Exploration de l'utilisation de l'intelligence artificielle dans la gestion et l'optimisation 
+                            des réseaux. L'article présente les solutions d'IA pour la détection d'anomalies, l'optimisation 
+                            automatique des performances, la prédiction des pannes, et l'automatisation des tâches 
+                            d'administration réseau.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">IA</span>
+                            <span class="article-tag">Automatisation</span>
+                            <span class="article-tag">Réseau</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 7 -->
+                    <div class="veille-article" data-category="reseau">
+                        <div class="article-header">
+                            <h3 class="article-title">SD-WAN : L'avenir de la connectivité d'entreprise</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 10 Février 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Network World
+                        </div>
+                        <p class="article-description">
+                            Analyse approfondie des solutions SD-WAN et de leur adoption croissante dans les entreprises. 
+                            Comparaison avec les réseaux MPLS traditionnels, avantages en termes de coût et de flexibilité, 
+                            et guide de déploiement. Présentation des principales solutions du marché.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">SD-WAN</span>
+                            <span class="article-tag">Réseau</span>
+                            <span class="article-tag">Entreprise</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article 8 -->
+                    <div class="veille-article" data-category="securite">
+                        <div class="article-header">
+                            <h3 class="article-title">Gestion des identités et accès (IAM) : Tendances 2024</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 5 Février 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Security Week
+                        </div>
+                        <p class="article-description">
+                            Revue des tendances en matière de gestion des identités et des accès pour 2024. L'article 
+                            couvre l'authentification multi-facteurs, l'authentification sans mot de passe, l'identité 
+                            décentralisée, et l'intégration de l'IA dans la gestion des accès.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">IAM</span>
+                            <span class="article-tag">Sécurité</span>
+                            <span class="article-tag">Authentification</span>
+                        </div>
+                        <a href="#" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Outils de Veille Utilisés</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-rss"></i>
+                        </div>
+                        <h4>Flux RSS</h4>
+                        <p>Suivi des flux RSS des principaux sites technologiques</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <h4>Twitter/X</h4>
+                        <p>Suivi des experts et communautés sur les réseaux sociaux</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-linkedin"></i>
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <p>Réseau professionnel et groupes spécialisés</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-bookmark-heart"></i>
+                        </div>
+                        <h4>Bookmarks</h4>
+                        <p>Organisation et sauvegarde des articles pertinents</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Portfolio Administrateur Réseau. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Filtrage des articles
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const articles = document.querySelectorAll('.veille-article');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Retirer la classe active de tous les boutons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    articles.forEach(article => {
+                        if (filter === 'all' || article.getAttribute('data-category') === filter) {
+                            article.style.display = 'block';
+                            setTimeout(() => {
+                                article.style.opacity = '1';
+                                article.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            article.style.opacity = '0';
+                            article.style.transform = 'translateY(-20px)';
+                            setTimeout(() => {
+                                article.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mon Curriculum Vitae</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+        .breadcrumb-nav {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+        .cv-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        .cv-header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+        .cv-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .cv-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+        }
+        .contact-item i {
+            color: var(--secondary-color);
+        }
+        .cv-section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+        .experience-item,
+        .formation-item,
+        .competence-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .experience-item::before,
+        .formation-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .item-company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .item-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        .competence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .competence-category {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        .competence-category h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .competence-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .competence-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .competence-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        .download-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .download-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .download-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+        .cv-preview {
+            background: white;
+            border: 2px dashed var(--bg-light);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            min-height: 400px;
+        }
+        @media print {
+            .navbar, .page-header, .download-section, footer {
+                display: none;
+            }
+            .cv-container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Admin Réseau</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e5.html">E5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e6.html">E6</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille.html">Veille</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active text-white">Curriculum Vitae</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3">Mon Curriculum Vitae</h1>
+            <p class="lead">Découvrez mon parcours, mes compétences et mon expérience professionnelle</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="cv-container">
+                        <!-- En-tête du CV -->
+                        <div class="cv-header">
+                            <h1 class="cv-name">Prénom NOM</h1>
+                            <p class="cv-title">Administrateur Réseau - BTS SIO SISR</p>
+                            <div class="cv-contact">
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span>email@example.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span>+33 6 12 34 56 78</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <span>Lyon, France</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-linkedin"></i>
+                                    <span>linkedin.com/in/profil</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expérience Professionnelle -->
+                        <div class="cv-section">
+                            <h2 class="section-title">Expérience Professionnelle</h2>
+                            
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">Stagiaire Administrateur Réseau</h3>
+                                        <p class="item-company">Entreprise XYZ - Service Informatique</p>
+                                    </div>
+                                    <span class="item-date">Septembre 2023 - Juin 2024</span>
+                                </div>
+                                <p class="item-description">
+                                    Support technique et maintenance de l'infrastructure réseau. Configuration et 
+                                    administration de serveurs Windows et Linux. Gestion des utilisateurs Active Directory, 
+                                    résolution d'incidents, et participation à des projets d'amélioration de l'infrastructure.
+                                </p>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">Technicien Informatique (Stage)</h3>
+                                        <p class="item-company">Société ABC - Support IT</p>
+                                    </div>
+                                    <span class="item-date">Mai 2022 - Juillet 2022</span>
+                                </div>
+                                <p class="item-description">
+                                    Assistance technique aux utilisateurs, installation et configuration de matériel, 
+                                    maintenance préventive, et participation à la gestion du parc informatique.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Formation -->
+                        <div class="cv-section">
+                            <h2 class="section-title">Formation</h2>
+                            
+                            <div class="formation-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">BTS Services Informatiques aux Organisations</h3>
+                                        <p class="item-company">Option SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</p>
+                                    </div>
+                                    <span class="item-date">2022 - 2024</span>
+                                </div>
+                                <p class="item-description">
+                                    Formation spécialisée en administration réseau, systèmes d'exploitation, virtualisation, 
+                                    et cybersécurité. Projets pratiques sur la configuration d'infrastructures réseau complexes.
+                                </p>
+                            </div>
+
+                            <div class="formation-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">Baccalauréat Général</h3>
+                                        <p class="item-company">Spécialités Mathématiques et Sciences de l'Ingénieur</p>
+                                    </div>
+                                    <span class="item-date">2019 - 2022</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Compétences -->
+                        <div class="cv-section">
+                            <h2 class="section-title">Compétences Techniques</h2>
+                            
+                            <div class="competence-grid">
+                                <div class="competence-category">
+                                    <h5>Réseau</h5>
+                                    <ul class="competence-list">
+                                        <li>Configuration Cisco (Routeurs, Switch)</li>
+                                        <li>VLAN, Routage Inter-VLAN</li>
+                                        <li>DHCP, DNS</li>
+                                        <li>Protocoles TCP/IP</li>
+                                        <li>Wi-Fi, VPN</li>
+                                    </ul>
+                                </div>
+
+                                <div class="competence-category">
+                                    <h5>Systèmes</h5>
+                                    <ul class="competence-list">
+                                        <li>Windows Server 2019/2022</li>
+                                        <li>Active Directory, GPO</li>
+                                        <li>Linux (Ubuntu, CentOS)</li>
+                                        <li>PowerShell, Bash</li>
+                                        <li>Services réseau (IIS, Apache)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="competence-category">
+                                    <h5>Virtualisation</h5>
+                                    <ul class="competence-list">
+                                        <li>VMware vSphere</li>
+                                        <li>Hyper-V</li>
+                                        <li>Gestion de clusters</li>
+                                        <li>Haute disponibilité</li>
+                                    </ul>
+                                </div>
+
+                                <div class="competence-category">
+                                    <h5>Sécurité</h5>
+                                    <ul class="competence-list">
+                                        <li>Pare-feu</li>
+                                        <li>Cybersécurité</li>
+                                        <li>Patch Management</li>
+                                        <li>Monitoring (Nagios)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="cv-section">
+                            <h2 class="section-title">Certifications</h2>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">CCNA (Cisco Certified Network Associate)</h3>
+                                        <p class="item-company">En cours de préparation</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <h3 class="item-title">MCSA: Windows Server 2016</h3>
+                                        <p class="item-company">En cours de préparation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Langues -->
+                        <div class="cv-section">
+                            <h2 class="section-title">Langues</h2>
+                            <div class="competence-grid">
+                                <div class="competence-category">
+                                    <h5>Français</h5>
+                                    <p>Langue maternelle</p>
+                                </div>
+                                <div class="competence-category">
+                                    <h5>Anglais</h5>
+                                    <p>Niveau B2 - Technique</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Téléchargement -->
+                    <div class="download-section">
+                        <h3 class="mb-4">Télécharger mon CV au format PDF</h3>
+                        <p class="mb-4">Vous pouvez télécharger une version PDF de mon curriculum vitae pour l'imprimer ou le partager.</p>
+                        <a href="../assets/pdf/cv.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le CV (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Portfolio Administrateur Réseau. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
+

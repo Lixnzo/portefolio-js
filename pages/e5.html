@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E5 - Projets Réalisés - BTS SIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-list-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .project-list-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .project-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .project-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .tech-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .download-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .download-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: white;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+        .breadcrumb-nav {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Admin Réseau</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="e5.html">E5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e6.html">E6</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille.html">Veille</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active text-white">E5 - Projets Réalisés</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3">Épreuve E5 - Projets Réalisés</h1>
+            <p class="lead">Découvrez les différents projets que j'ai réalisés dans le cadre de ma formation BTS SIO SISR</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Projet 1 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Infrastructure Réseau d'Entreprise</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Janvier 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Mise en place complète d'une infrastructure réseau pour une entreprise de 50 employés. 
+                            Configuration de VLANs, routage inter-VLAN, mise en place de règles de sécurité, 
+                            configuration DHCP et DNS, et sécurisation de l'accès au réseau.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">Cisco</span>
+                            <span class="tech-badge">VLAN</span>
+                            <span class="tech-badge">Routage</span>
+                            <span class="tech-badge">Sécurité</span>
+                            <span class="tech-badge">DHCP/DNS</span>
+                        </div>
+                        <a href="../assets/pdf/projet-infrastructure-reseau.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+
+                    <!-- Projet 2 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Configuration Active Directory</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Février 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Déploiement et configuration d'un domaine Active Directory avec gestion des utilisateurs, 
+                            groupes, politiques de groupe (GPO), partages réseau, et intégration avec les services 
+                            d'authentification. Mise en place de la réplication entre contrôleurs de domaine.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">Windows Server</span>
+                            <span class="tech-badge">Active Directory</span>
+                            <span class="tech-badge">GPO</span>
+                            <span class="tech-badge">PowerShell</span>
+                        </div>
+                        <a href="../assets/pdf/projet-active-directory.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+
+                    <!-- Projet 3 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Infrastructure Virtualisée VMware</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Mars 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Création d'une infrastructure virtualisée complète avec VMware vSphere. Configuration 
+                            de clusters, gestion des ressources, migration de machines physiques vers virtuelles, 
+                            mise en place de la haute disponibilité et sauvegarde des machines virtuelles.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">VMware</span>
+                            <span class="tech-badge">Virtualisation</span>
+                            <span class="tech-badge">vSphere</span>
+                            <span class="tech-badge">HA/DRS</span>
+                        </div>
+                        <a href="../assets/pdf/projet-vmware.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+
+                    <!-- Projet 4 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Sécurisation d'Infrastructure</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Avril 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Audit de sécurité et mise en place de mesures de protection pour une infrastructure 
+                            réseau. Configuration de pare-feu, mise en place de VPN, chiffrement des communications, 
+                            monitoring des intrusions et formation des utilisateurs aux bonnes pratiques.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">Cybersécurité</span>
+                            <span class="tech-badge">Pare-feu</span>
+                            <span class="tech-badge">VPN</span>
+                            <span class="tech-badge">IDS/IPS</span>
+                        </div>
+                        <a href="../assets/pdf/projet-securite.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+
+                    <!-- Projet 5 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Administration Linux Serveur</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Mai 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Configuration et administration de serveurs Linux (Ubuntu Server, CentOS). Installation 
+                            et configuration de services web (Apache/Nginx), bases de données (MySQL/PostgreSQL), 
+                            scripts d'automatisation bash, monitoring avec Nagios, et gestion des utilisateurs.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">Linux</span>
+                            <span class="tech-badge">Apache/Nginx</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Bash</span>
+                            <span class="tech-badge">Nagios</span>
+                        </div>
+                        <a href="../assets/pdf/projet-linux.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+
+                    <!-- Projet 6 -->
+                    <div class="project-list-item">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">Mise en Place de Sauvegarde Automatisée</h3>
+                                <p class="project-date mb-0"><i class="bi bi-calendar"></i> Juin 2024</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Conception et mise en place d'une stratégie de sauvegarde complète pour une entreprise. 
+                            Configuration de sauvegardes automatiques, tests de restauration, archivage à long terme, 
+                            et documentation des procédures de récupération en cas de sinistre.
+                        </p>
+                        <div class="project-technologies">
+                            <span class="tech-badge">Sauvegarde</span>
+                            <span class="tech-badge">Veeam</span>
+                            <span class="tech-badge">Scripts</span>
+                            <span class="tech-badge">Documentation</span>
+                        </div>
+                        <a href="../assets/pdf/projet-sauvegarde.pdf" class="download-btn" download>
+                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Portfolio Administrateur Réseau. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
+
