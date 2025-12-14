@@ -93,6 +93,32 @@
             margin: 4rem 0;
             border-top: 2px solid var(--bg-light);
         }
+        .pdf-download {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        .pdf-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .pdf-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        .pdf-download-btn i {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -145,7 +171,7 @@
                 </ol>
             </nav>
             <h1 class="display-4 fw-bold mb-3">Épreuve E6 - Support et Maintien en Conditions Opérationnelles</h1>
-            <p class="lead">Activités de support technique et de maintien en conditions opérationnelles réalisées en entreprise</p>
+            <p class="lead">Activités de support technique et de maintien en conditions opérationnelles réalisées chez StadiumCompany</p>
         </div>
     </div>
 
@@ -153,29 +179,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title mb-4">Activités de Support</h2>
+                    <h2 class="section-title mb-4">Activités Réalisées</h2>
                     
-                    <!-- Activité 1 -->
+                    <!-- Activité 1 - Mission 1 -->
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="bi bi-headset"></i>
+                            <i class="bi bi-router"></i>
                         </div>
-                        <h3 class="activity-title">Support Utilisateurs - Résolution d'Incidents</h3>
+                        <h3 class="activity-title">Mission 1 - Restructuration de l'Infrastructure de StadiumCompany</h3>
                         <p class="activity-description">
-                            Prise en charge et résolution d'incidents techniques pour les utilisateurs de l'entreprise. 
-                            Gestion du ticketing, diagnostic des problèmes, et mise en place de solutions durables.
+                            Restructuration complète de l'infrastructure réseau de StadiumCompany pour résoudre les problèmes de bande passante 
+                            et de gestion du trafic. Conception et mise en place d'une infrastructure réseau moderne avec segmentation (VLAN), 
+                            configuration uniforme des équipements Cisco, et interconnexion sécurisée entre les sites (stade, billetterie, magasin). 
+                            Cette restructuration permet à StadiumCompany d'introduire de nouvelles technologies et d'organiser des concerts.
                         </p>
                         <div class="activity-details">
                             <div class="detail-item">
                                 <i class="bi bi-check-circle-fill detail-icon"></i>
                                 <div>
-                                    <strong>Contexte :</strong> Service informatique d'une entreprise de 100 employés
+                                    <strong>Contexte :</strong> Mission 1 - Restructuration de l'Infrastructure de StadiumCompany. 
+                                    StadiumCompany gère un grand stade avec 170 employés à temps plein répartis dans 7 services (Administration, Équipes, WiFi, 
+                                    Caméra IP, VIP-Presse, Fournisseurs, Restaurant), plus 80 intérimaires pour les événements. Le réseau initial avait été mis en place 
+                                    lors de la construction mais n'avait pas évolué avec les besoins de l'entreprise, causant des problèmes de bande passante. 
+                                    Le stade est construit sur deux niveaux avec des locaux techniques reliés par des câbles à fibre optique.
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-bullseye detail-icon"></i>
+                                <div>
+                                    <strong>Objectif de la mission :</strong> Restructurer l'infrastructure réseau de StadiumCompany pour résoudre les problèmes 
+                                    de bande passante et de gestion du trafic, permettre l'introduction de nouvelles technologies et l'organisation de concerts. 
+                                    Mettre en place une segmentation réseau efficace pour les 7 services, configurer uniformément les équipements Cisco, 
+                                    et créer une solution d'interconnexion efficace entre les sites (stade, billetterie, magasin). Utiliser la plage d'adresses IP 
+                                    172.20.0.0/22 pour simplifier la gestion des ressources réseau.
                                 </div>
                             </div>
                             <div class="detail-item">
                                 <i class="bi bi-calendar-check detail-icon"></i>
                                 <div>
-                                    <strong>Période :</strong> Septembre 2023 - Décembre 2023
+                                    <strong>Période :</strong> Septembre 2025 - Octobre 2025
                                 </div>
                             </div>
                             <div class="detail-item">
@@ -183,10 +225,16 @@
                                 <div>
                                     <strong>Actions réalisées :</strong>
                                     <ul class="mt-2 mb-0">
-                                        <li>Résolution de 150+ tickets d'incidents</li>
-                                        <li>Diagnostic et correction de problèmes réseau</li>
-                                        <li>Assistance à la configuration de postes de travail</li>
-                                        <li>Formation des utilisateurs aux outils informatiques</li>
+                                        <li>Analyse de l'infrastructure réseau existante et identification des problèmes de bande passante</li>
+                                        <li>Conception d'une architecture réseau restructurée avec segmentation pour les 7 services</li>
+                                        <li>Configuration uniforme des équipements Cisco (routeurs et commutateurs) sur tous les sites</li>
+                                        <li>Mise en place de la segmentation réseau (VLAN) pour séparer les services et améliorer la sécurité</li>
+                                        <li>Configuration de la plage d'adresses IP 172.20.0.0/22 pour simplifier la gestion</li>
+                                        <li>Mise en place des interconnexions entre le site du stade et les sites distants (billetterie et magasin via DSL)</li>
+                                        <li>Configuration des équipements réseau sur les deux niveaux du stade avec câbles à fibre optique</li>
+                                        <li>Optimisation de la gestion du trafic pour supporter les nouveaux besoins (concerts, nouvelles technologies)</li>
+                                        <li>Documentation complète de la nouvelle architecture réseau et des configurations</li>
+                                        <li>Tests de performance et validation de la nouvelle infrastructure</li>
                                     </ul>
                                 </div>
                             </div>
@@ -195,245 +243,61 @@
                                 <div>
                                     <strong>Compétences développées :</strong>
                                     <div class="mt-2">
-                                        <span class="competence-badge">Communication</span>
-                                        <span class="competence-badge">Diagnostic</span>
-                                        <span class="competence-badge">Résolution de problèmes</span>
-                                        <span class="competence-badge">Gestion de tickets</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activité 2 -->
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h3 class="activity-title">Mise à Jour de Sécurité et Patch Management</h3>
-                        <p class="activity-description">
-                            Gestion des mises à jour de sécurité pour l'ensemble de l'infrastructure. Planification, 
-                            test et déploiement des correctifs de sécurité sur les serveurs et postes clients.
-                        </p>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="bi bi-check-circle-fill detail-icon"></i>
-                                <div>
-                                    <strong>Contexte :</strong> Maintenance préventive de l'infrastructure
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-calendar-check detail-icon"></i>
-                                <div>
-                                    <strong>Période :</strong> Octobre 2023 - En cours
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-list-check detail-icon"></i>
-                                <div>
-                                    <strong>Actions réalisées :</strong>
-                                    <ul class="mt-2 mb-0">
-                                        <li>Mise en place d'une stratégie de patch management</li>
-                                        <li>Déploiement automatisé des mises à jour Windows</li>
-                                        <li>Mise à jour des serveurs Linux</li>
-                                        <li>Documentation des procédures de mise à jour</li>
-                                        <li>Tests de non-régression après chaque patch</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-trophy detail-icon"></i>
-                                <div>
-                                    <strong>Compétences développées :</strong>
-                                    <div class="mt-2">
-                                        <span class="competence-badge">Patch Management</span>
-                                        <span class="competence-badge">Sécurité</span>
-                                        <span class="competence-badge">Automatisation</span>
-                                        <span class="competence-badge">Planification</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activité 3 -->
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="bi bi-database-check"></i>
-                        </div>
-                        <h3 class="activity-title">Surveillance et Monitoring de l'Infrastructure</h3>
-                        <p class="activity-description">
-                            Mise en place et maintenance d'un système de monitoring pour surveiller l'état de santé 
-                            de l'infrastructure réseau et serveurs. Configuration d'alertes et création de tableaux de bord.
-                        </p>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="bi bi-check-circle-fill detail-icon"></i>
-                                <div>
-                                    <strong>Contexte :</strong> Amélioration de la visibilité sur l'infrastructure
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-calendar-check detail-icon"></i>
-                                <div>
-                                    <strong>Période :</strong> Novembre 2023 - Février 2024
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-list-check detail-icon"></i>
-                                <div>
-                                    <strong>Actions réalisées :</strong>
-                                    <ul class="mt-2 mb-0">
-                                        <li>Installation et configuration de Nagios</li>
-                                        <li>Configuration de monitoring SNMP</li>
-                                        <li>Création de tableaux de bord personnalisés</li>
-                                        <li>Mise en place d'alertes par email/SMS</li>
-                                        <li>Documentation des procédures de monitoring</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-trophy detail-icon"></i>
-                                <div>
-                                    <strong>Compétences développées :</strong>
-                                    <div class="mt-2">
-                                        <span class="competence-badge">Monitoring</span>
-                                        <span class="competence-badge">SNMP</span>
-                                        <span class="competence-badge">Nagios</span>
-                                        <span class="competence-badge">Alerting</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-divider"></div>
-
-                    <h2 class="section-title mb-4">Activités de Maintien en Conditions Opérationnelles</h2>
-
-                    <!-- Activité 4 -->
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="bi bi-arrow-repeat"></i>
-                        </div>
-                        <h3 class="activity-title">Maintenance Préventive des Équipements Réseau</h3>
-                        <p class="activity-description">
-                            Réalisation de maintenances préventives régulières sur les équipements réseau (routeurs, 
-                            commutateurs, points d'accès). Nettoyage, vérification des configurations, et optimisation des performances.
-                        </p>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="bi bi-check-circle-fill detail-icon"></i>
-                                <div>
-                                    <strong>Contexte :</strong> Maintenance préventive mensuelle
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-calendar-check detail-icon"></i>
-                                <div>
-                                    <strong>Période :</strong> Janvier 2024 - En cours
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-list-check detail-icon"></i>
-                                <div>
-                                    <strong>Actions réalisées :</strong>
-                                    <ul class="mt-2 mb-0">
-                                        <li>Vérification mensuelle de tous les équipements</li>
-                                        <li>Mise à jour des firmwares</li>
-                                        <li>Vérification des logs et alertes</li>
-                                        <li>Optimisation des configurations</li>
-                                        <li>Rédaction de rapports de maintenance</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-trophy detail-icon"></i>
-                                <div>
-                                    <strong>Compétences développées :</strong>
-                                    <div class="mt-2">
-                                        <span class="competence-badge">Maintenance</span>
                                         <span class="competence-badge">Cisco</span>
-                                        <span class="competence-badge">Documentation</span>
-                                        <span class="competence-badge">Prévention</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activité 5 -->
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="bi bi-hdd-stack"></i>
-                        </div>
-                        <h3 class="activity-title">Gestion des Sauvegardes et Tests de Restauration</h3>
-                        <p class="activity-description">
-                            Gestion quotidienne des sauvegardes de l'infrastructure. Vérification de l'intégrité des 
-                            sauvegardes, tests de restauration réguliers, et amélioration continue des procédures.
-                        </p>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="bi bi-check-circle-fill detail-icon"></i>
-                                <div>
-                                    <strong>Contexte :</strong> Gestion des sauvegardes critiques
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-calendar-check detail-icon"></i>
-                                <div>
-                                    <strong>Période :</strong> Décembre 2023 - En cours
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-list-check detail-icon"></i>
-                                <div>
-                                    <strong>Actions réalisées :</strong>
-                                    <ul class="mt-2 mb-0">
-                                        <li>Vérification quotidienne des sauvegardes</li>
-                                        <li>Tests de restauration mensuels</li>
-                                        <li>Amélioration des scripts de sauvegarde</li>
-                                        <li>Documentation des procédures de restauration</li>
-                                        <li>Formation de l'équipe aux procédures</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-trophy detail-icon"></i>
-                                <div>
-                                    <strong>Compétences développées :</strong>
-                                    <div class="mt-2">
-                                        <span class="competence-badge">Sauvegarde</span>
-                                        <span class="competence-badge">Veeam</span>
-                                        <span class="competence-badge">Restauration</span>
+                                        <span class="competence-badge">VLAN</span>
+                                        <span class="competence-badge">Architecture réseau</span>
+                                        <span class="competence-badge">Routage</span>
+                                        <span class="competence-badge">Interconnexion</span>
                                         <span class="competence-badge">Planification</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="pdf-download">
+                            <a href="../assets/pdf/mission1.pdf" class="pdf-download-btn" target="_blank" download>
+                                <i class="bi bi-file-earmark-pdf"></i>
+                                Télécharger le PDF de l'activité
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Activité 6 -->
+                    <!-- Activité 2 - Mission 2 -->
                     <div class="activity-card">
                         <div class="activity-icon">
-                            <i class="bi bi-file-earmark-text"></i>
+                            <i class="bi bi-server"></i>
                         </div>
-                        <h3 class="activity-title">Documentation et Procédures</h3>
+                        <h3 class="activity-title">Mission 2 - Infrastructure, Configuration et Administration des Services Informatiques</h3>
                         <p class="activity-description">
-                            Création et mise à jour de la documentation technique de l'infrastructure. Rédaction 
-                            de procédures opérationnelles, schémas réseau, et guides d'utilisation.
+                            Configuration et administration de l'infrastructure des services informatiques de StadiumCompany au site du stade. 
+                            Mise en place et gestion du service Active Directory, des serveurs DNS (primaire et secondaire), du service DHCP, 
+                            du stockage des fichiers utilisateurs, et du serveur RSync. Organisation des utilisateurs par service dans des unités 
+                            organisationnelles et application de politiques de sécurité via les GPO.
                         </p>
                         <div class="activity-details">
                             <div class="detail-item">
                                 <i class="bi bi-check-circle-fill detail-icon"></i>
                                 <div>
-                                    <strong>Contexte :</strong> Amélioration de la documentation technique
+                                    <strong>Contexte :</strong> Mission 2 - Infrastructure, Configuration et Administration des Services Informatiques de StadiumCompany. 
+                                    Administration des services informatiques au site du stade pour les 170 employés répartis dans 7 services. 
+                                    Gestion du domaine Active Directory Stadiumcompany.com, des serveurs DNS (primaire Windows Server 2022 et secondaire Linux Debian ou Windows Server), 
+                                    du service DHCP, du stockage des fichiers utilisateurs, et du serveur RSync. Les utilisateurs sont organisés par service dans des unités 
+                                    organisationnelles (UO) avec des groupes d'utilisateurs (G_xxxx) et des administrateurs de service (GP_Admin).
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-bullseye detail-icon"></i>
+                                <div>
+                                    <strong>Objectif de la mission :</strong> Assurer la configuration et l'administration efficace des services informatiques 
+                                    de StadiumCompany. Gérer l'authentification des utilisateurs via Active Directory, la résolution des noms de domaine via DNS, 
+                                    l'attribution automatique des adresses IP via DHCP, le stockage centralisé des fichiers utilisateurs, et la synchronisation des données. 
+                                    Organiser les utilisateurs par service et appliquer des politiques de sécurité cohérentes pour garantir la sécurité et la productivité 
+                                    des 7 services de l'entreprise.
                                 </div>
                             </div>
                             <div class="detail-item">
                                 <i class="bi bi-calendar-check detail-icon"></i>
                                 <div>
-                                    <strong>Période :</strong> Toute la période de stage
+                                    <strong>Période :</strong> Octobre 2025 - Novembre 2025
                                 </div>
                             </div>
                             <div class="detail-item">
@@ -441,11 +305,19 @@
                                 <div>
                                     <strong>Actions réalisées :</strong>
                                     <ul class="mt-2 mb-0">
-                                        <li>Mise à jour des schémas réseau</li>
-                                        <li>Rédaction de procédures d'exploitation</li>
-                                        <li>Création de guides utilisateurs</li>
-                                        <li>Documentation des configurations</li>
-                                        <li>Mise en place d'un wiki interne</li>
+                                        <li>Configuration et administration du service Active Directory pour le domaine Stadiumcompany.com</li>
+                                        <li>Organisation des utilisateurs par service dans des unités organisationnelles (UO)</li>
+                                        <li>Création et gestion des groupes d'utilisateurs par service (G_xxxx) et des administrateurs (GP_Admin)</li>
+                                        <li>Configuration des logins utilisateurs (première lettre du prénom + nom de famille, avec chiffre en cas de doublon)</li>
+                                        <li>Mise en place des dossiers personnels et profils centralisés pour chaque utilisateur</li>
+                                        <li>Configuration du serveur DNS primaire Windows Server 2022 (zones directes stadiumcompany.com et inverses 172.20.0.10)</li>
+                                        <li>Configuration du serveur DNS secondaire (Linux Debian ou Windows Server) pour la redondance</li>
+                                        <li>Configuration du service DHCP avec plage d'adresses réservée sur 172.20.0.10 et options de routeur/DNS</li>
+                                        <li>Configuration du stockage des fichiers utilisateurs sur le serveur DNS primaire</li>
+                                        <li>Configuration et administration du serveur RSync pour la synchronisation de fichiers</li>
+                                        <li>Mise en place de la politique de complexité des mots de passe au niveau du domaine</li>
+                                        <li>Configuration des GPO (Group Policy Objects) pour appliquer des politiques de sécurité aux machines</li>
+                                        <li>Support et résolution d'incidents liés aux services informatiques pour les 7 services</li>
                                     </ul>
                                 </div>
                             </div>
@@ -454,13 +326,105 @@
                                 <div>
                                     <strong>Compétences développées :</strong>
                                     <div class="mt-2">
-                                        <span class="competence-badge">Documentation</span>
-                                        <span class="competence-badge">Rédaction</span>
-                                        <span class="competence-badge">Schémas</span>
-                                        <span class="competence-badge">Procédures</span>
+                                        <span class="competence-badge">Active Directory</span>
+                                        <span class="competence-badge">Windows Server 2022</span>
+                                        <span class="competence-badge">DNS</span>
+                                        <span class="competence-badge">DHCP</span>
+                                        <span class="competence-badge">Linux Debian</span>
+                                        <span class="competence-badge">GPO</span>
+                                        <span class="competence-badge">RSync</span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="pdf-download">
+                            <a href="../assets/pdf/mission2.pdf" class="pdf-download-btn" target="_blank" download>
+                                <i class="bi bi-file-earmark-pdf"></i>
+                                Télécharger le PDF de l'activité
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Activité 3 - Mission 3 -->
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h3 class="activity-title">Mission 3 - Mise en Place d'une Solution pour l'Administration à Distance Sécurisée et la Sécurisation des Interconnexions</h3>
+                        <p class="activity-description">
+                            Mise en place d'une solution robuste pour l'administration à distance sécurisée via SSH et la sécurisation des interconnexions 
+                            entre les différents sites de StadiumCompany. Sécurisation des liaisons entre le site du stade et les sites distants (billetterie, magasin), 
+                            mise en place de mécanismes d'authentification renforcée, et surveillance de la sécurité du système d'information.
+                        </p>
+                        <div class="activity-details">
+                            <div class="detail-item">
+                                <i class="bi bi-check-circle-fill detail-icon"></i>
+                                <div>
+                                    <strong>Contexte :</strong> Mission 3 - Mise en Place d'une Solution pour l'Administration à Distance Sécurisée et la Sécurisation des Interconnexions. 
+                                    Sécurisation du système d'information de StadiumCompany entre les différents sites (stade, billetterie, magasin). 
+                                    Les sites distants (billetterie et magasin) sont connectés au site du stade via DSL à un FAI local. 
+                                    Il est nécessaire de sécuriser ces interconnexions et de permettre une administration à distance sécurisée des équipements réseau 
+                                    et des serveurs via le protocole SSH (Secure Shell).
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-bullseye detail-icon"></i>
+                                <div>
+                                    <strong>Objectif de la mission :</strong> Mettre en place une solution sécurisée pour l'administration à distance des équipements 
+                                    réseau et des serveurs de StadiumCompany via SSH. Sécuriser les interconnexions entre le site du stade et les sites distants 
+                                    (billetterie et magasin) pour garantir l'intégrité et la confidentialité des données transitant entre ces sites. 
+                                    Renforcer la sécurité globale du système d'information en mettant en place des mécanismes d'authentification renforcée, 
+                                    de surveillance de la sécurité, et de gestion des certificats numériques.
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-calendar-check detail-icon"></i>
+                                <div>
+                                    <strong>Période :</strong> Novembre 2025 - Décembre 2025
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-list-check detail-icon"></i>
+                                <div>
+                                    <strong>Actions réalisées :</strong>
+                                    <ul class="mt-2 mb-0">
+                                        <li>Mise en place de l'administration à distance sécurisée via SSH pour les équipements réseau et serveurs</li>
+                                        <li>Configuration du protocole SSH avec chiffrement des communications et authentification robuste</li>
+                                        <li>Sécurisation des interconnexions entre le stade et les sites distants (billetterie, magasin)</li>
+                                        <li>Mise en place de réseaux privés virtuels (VPN) ou connexions chiffrées pour les liaisons inter-sites</li>
+                                        <li>Configuration de pare-feux pour protéger les communications entre les sites</li>
+                                        <li>Mise en place de mécanismes d'authentification à deux facteurs (2FA) lorsque possible</li>
+                                        <li>Gestion des certificats numériques et des identités pour garantir l'authenticité des connexions SSH</li>
+                                        <li>Surveillance et renouvellement régulier des certificats</li>
+                                        <li>Mise en place d'un système de surveillance de la sécurité pour détecter les tentatives d'intrusion</li>
+                                        <li>Configuration de la journalisation des accès SSH et suivi des alertes de sécurité en temps réel</li>
+                                        <li>Formation du personnel à l'utilisation sécurisée des connexions SSH et à la gestion des accès à distance</li>
+                                        <li>Sensibilisation à la sécurité et aux bonnes pratiques pour l'administration à distance</li>
+                                        <li>Documentation des procédures de sécurité et des configurations SSH</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-trophy detail-icon"></i>
+                                <div>
+                                    <strong>Compétences développées :</strong>
+                                    <div class="mt-2">
+                                        <span class="competence-badge">SSH</span>
+                                        <span class="competence-badge">Sécurité</span>
+                                        <span class="competence-badge">VPN</span>
+                                        <span class="competence-badge">Pare-feu</span>
+                                        <span class="competence-badge">Certificats</span>
+                                        <span class="competence-badge">2FA</span>
+                                        <span class="competence-badge">Surveillance sécurité</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdf-download">
+                            <a href="../assets/pdf/mission3.pdf" class="pdf-download-btn" target="_blank" download>
+                                <i class="bi bi-file-earmark-pdf"></i>
+                                Télécharger le PDF de l'activité
+                            </a>
                         </div>
                     </div>
                 </div>
