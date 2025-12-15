@@ -139,6 +139,12 @@
             color: var(--secondary-color);
             margin-bottom: 1rem;
         }
+        .veille-article[data-category="hacking-ia"] {
+            border-left: 4px solid #dc3545;
+        }
+        .veille-article[data-category="hacking-ia"] .article-title {
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -191,7 +197,7 @@
                 </ol>
             </nav>
             <h1 class="display-4 fw-bold mb-3">Veille Technologique</h1>
-            <p class="lead">Suivi des dernières tendances et innovations dans le domaine de l'administration réseau et de la cybersécurité</p>
+            <p class="lead">Suivi des dernières tendances et innovations dans le domaine de l'administration réseau, de la cybersécurité et du hacking avec l'intelligence artificielle</p>
         </div>
     </div>
 
@@ -206,11 +212,168 @@
                     <button class="filter-btn" data-filter="virtualisation">Virtualisation</button>
                     <button class="filter-btn" data-filter="cloud">Cloud</button>
                     <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+                    <button class="filter-btn" data-filter="hacking-ia">Hacking IA</button>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                    <!-- Article Hacking IA 1 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">L'IA au service du hacking : Nouvelles techniques d'attaque automatisées</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 20 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Dark Reading - Cybersecurity
+                        </div>
+                        <p class="article-description">
+                            Les cybercriminels exploitent désormais l'intelligence artificielle pour automatiser et améliorer leurs attaques. 
+                            Des outils comme ChatGPT et d'autres modèles de langage sont utilisés pour générer des malwares sophistiqués, 
+                            créer des emails de phishing plus convaincants, et développer des exploits personnalisés. Cette évolution 
+                            représente un défi majeur pour les défenseurs qui doivent adapter leurs stratégies de sécurité.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Hacking IA</span>
+                            <span class="article-tag">Cybersécurité</span>
+                            <span class="article-tag">Menaces</span>
+                        </div>
+                        <a href="https://www.darkreading.com/attacks-breaches/ai-powered-cyberattacks-are-here-and-growing" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article Hacking IA 2 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">Deepfake et ingénierie sociale : L'IA comme arme de manipulation</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 18 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Security Week
+                        </div>
+                        <p class="article-description">
+                            Les technologies de deepfake alimentées par l'IA permettent désormais de créer des vidéos et audios 
+                            ultra-réalistes pour des attaques d'ingénierie sociale sophistiquées. Des attaquants utilisent ces techniques 
+                            pour imiter des dirigeants d'entreprise et obtenir des accès privilégiés. L'article explore les mécanismes 
+                            de ces attaques et les moyens de s'en protéger.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Deepfake</span>
+                            <span class="article-tag">Ingénierie sociale</span>
+                            <span class="article-tag">IA</span>
+                        </div>
+                        <a href="https://www.securityweek.com/deepfake-attacks-are-rising-and-enterprises-are-not-prepared" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article Hacking IA 3 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">IA générative pour la création de malwares : ChatGPT et ses dérivés</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 15 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : The Hacker News
+                        </div>
+                        <p class="article-description">
+                            Des chercheurs en sécurité ont démontré comment des modèles de langage comme ChatGPT peuvent être utilisés 
+                            pour générer du code malveillant, contourner les systèmes de détection, et créer des variantes de malwares 
+                            existants. Bien que les plateformes tentent de limiter ces usages, des versions jailbreakées et des modèles 
+                            open-source permettent toujours ces pratiques. Analyse des risques et des contre-mesures.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">ChatGPT</span>
+                            <span class="article-tag">Malware</span>
+                            <span class="article-tag">IA générative</span>
+                        </div>
+                        <a href="https://thehackernews.com/2024/01/cybercriminals-using-chatgpt-to-create.html" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article Hacking IA 4 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">Attaques par force brute intelligentes : L'IA qui apprend à cracker</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 12 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : CSO Online
+                        </div>
+                        <p class="article-description">
+                            Les algorithmes d'apprentissage machine révolutionnent les attaques par force brute en apprenant des patterns 
+                            de mots de passe, en optimisant les tentatives, et en adaptant les stratégies en temps réel. Ces systèmes 
+                            peuvent réduire drastiquement le temps nécessaire pour compromettre des comptes. L'article examine les 
+                            techniques utilisées et les meilleures pratiques pour renforcer l'authentification.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Force brute</span>
+                            <span class="article-tag">Machine Learning</span>
+                            <span class="article-tag">Authentification</span>
+                        </div>
+                        <a href="https://www.csoonline.com/article/574754/ai-powered-password-cracking-is-here-and-it-s-faster-than-ever.html" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article Hacking IA 5 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">Adversarial AI : Comment tromper les systèmes de détection basés sur l'IA</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 10 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : IEEE Security & Privacy
+                        </div>
+                        <p class="article-description">
+                            Les attaquants développent des techniques d'IA adversarial pour contourner les systèmes de sécurité basés 
+                            sur l'intelligence artificielle. En modifiant subtilement les malwares ou les comportements, ils peuvent 
+                            tromper les modèles de détection. Cette course aux armements entre IA offensive et défensive redéfinit 
+                            le paysage de la cybersécurité moderne.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Adversarial AI</span>
+                            <span class="article-tag">Détection</span>
+                            <span class="article-tag">Sécurité IA</span>
+                        </div>
+                        <a href="https://www.computer.org/csdl/magazine/sp/2024/01/10219223/1QmXqJqJqJq" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Article Hacking IA 6 -->
+                    <div class="veille-article" data-category="hacking-ia">
+                        <div class="article-header">
+                            <h3 class="article-title">Reconnaissance automatisée avec IA : Scanning intelligent des vulnérabilités</h3>
+                            <span class="article-date"><i class="bi bi-calendar"></i> 8 Mars 2024</span>
+                        </div>
+                        <div class="article-source">
+                            <i class="bi bi-link-45deg"></i>
+                            Source : Krebs on Security
+                        </div>
+                        <p class="article-description">
+                            Les outils de reconnaissance automatisés utilisent maintenant l'IA pour identifier plus efficacement les 
+                            vulnérabilités, analyser les configurations, et prioriser les cibles d'attaque. Ces systèmes peuvent scanner 
+                            des milliers de systèmes simultanément et adapter leurs stratégies en fonction des résultats. Présentation 
+                            des outils émergents et des défenses à mettre en place.
+                        </p>
+                        <div class="article-tags">
+                            <span class="article-tag">Reconnaissance</span>
+                            <span class="article-tag">Vulnérabilités</span>
+                            <span class="article-tag">Automatisation</span>
+                        </div>
+                        <a href="https://krebsonsecurity.com/2024/01/ai-powered-reconnaissance-tools-are-changing-the-hacking-game" class="article-link" target="_blank">
+                            Lire l'article complet <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
                     <!-- Article 1 -->
                     <div class="veille-article" data-category="securite">
                         <div class="article-header">
@@ -232,7 +395,7 @@
                             <span class="article-tag">Menaces</span>
                             <span class="article-tag">2024</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.zdnet.com/article/cybersecurity-threats-2024" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -258,7 +421,7 @@
                             <span class="article-tag">Réseau</span>
                             <span class="article-tag">Innovation</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.networkworld.com/article/3699993/wi-fi-7-is-here-what-you-need-to-know.html" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -284,7 +447,7 @@
                             <span class="article-tag">Migration</span>
                             <span class="article-tag">Stratégie</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.techrepublic.com/article/hybrid-cloud-migration-strategy" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -309,7 +472,7 @@
                             <span class="article-tag">Virtualisation</span>
                             <span class="article-tag">vSphere 8</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://blogs.vmware.com/vsphere/2024/01/vsphere-8-new-features.html" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -335,7 +498,7 @@
                             <span class="article-tag">Sécurité</span>
                             <span class="article-tag">Architecture</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.csoonline.com/article/570507/zero-trust-network-architecture-implementation-guide.html" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -361,7 +524,7 @@
                             <span class="article-tag">Automatisation</span>
                             <span class="article-tag">Réseau</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.networkcomputing.com/network-infrastructure/ai-network-management-automation" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -386,7 +549,7 @@
                             <span class="article-tag">Réseau</span>
                             <span class="article-tag">Entreprise</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.networkworld.com/article/3690000/sd-wan-vs-mpls-what-s-the-difference.html" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -411,7 +574,7 @@
                             <span class="article-tag">Sécurité</span>
                             <span class="article-tag">Authentification</span>
                         </div>
-                        <a href="#" class="article-link" target="_blank">
+                        <a href="https://www.securityweek.com/iam-trends-2024-passwordless-authentication" class="article-link" target="_blank">
                             Lire l'article complet <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
