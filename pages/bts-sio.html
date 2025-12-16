@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS SIO - Brevet de Technicien Supérieur Services Informatiques aux Organisations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+        .breadcrumb-nav {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .branch-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+        }
+        .branch-card.sisr {
+            border-left-color: #1ba0d7;
+        }
+        .branch-card.slam {
+            border-left-color: #28a745;
+        }
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .branch-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        .branch-card.sisr .branch-icon {
+            color: #1ba0d7;
+        }
+        .branch-card.slam .branch-icon {
+            color: #28a745;
+        }
+        .branch-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .branch-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .competence-list {
+            list-style: none;
+            padding: 0;
+        }
+        .competence-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .competence-list li:last-child {
+            border-bottom: none;
+        }
+        .competence-list li i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        .branch-card.sisr .competence-list li i {
+            color: #1ba0d7;
+        }
+        .branch-card.slam .competence-list li i {
+            color: #28a745;
+        }
+        .comparison-section {
+            background: var(--bg-light);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .comparison-table table {
+            width: 100%;
+        }
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .stat-label {
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Admin Réseau</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e5.html">E5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="e6.html">E6</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille.html">Veille</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bts-sio.html">BTS SIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active text-white">BTS SIO</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3">BTS SIO</h1>
+            <p class="lead">Brevet de Technicien Supérieur Services Informatiques aux Organisations</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="highlight-box">
+                        <h2 class="mb-3"><i class="bi bi-info-circle"></i> Présentation du diplôme</h2>
+                        <p class="lead mb-0">
+                            Le BTS SIO (Services Informatiques aux Organisations) est un diplôme de niveau Bac+2 qui forme des techniciens 
+                            supérieurs capables de gérer, administrer et développer des services informatiques au sein d'entreprises. 
+                            Cette formation prépare aux métiers de l'informatique en proposant deux spécialités distinctes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Années de formation</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Spécialités</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-item">
+                        <div class="stat-number">12-16</div>
+                        <div class="stat-label">Semaines de stage</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title text-center mb-5">Les deux spécialités du BTS SIO</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Spécialité SISR -->
+                    <div class="branch-card sisr">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="branch-icon">
+                                <i class="bi bi-router-fill"></i>
+                            </div>
+                            <div>
+                                <h3 class="branch-title mb-0">SISR</h3>
+                                <p class="branch-subtitle mb-0">Solutions d'Infrastructure, Systèmes et Réseaux</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-4" style="line-height: 1.8; color: var(--text-dark);">
+                            La spécialité <strong>SISR</strong> forme des techniciens capables de concevoir, installer, administrer et maintenir 
+                            les infrastructures réseau et systèmes d'une organisation. Les étudiants apprennent à gérer les équipements réseau, 
+                            les serveurs, la virtualisation, la sécurité des systèmes d'information et la supervision des infrastructures.
+                        </p>
+
+                        <h4 class="mb-3" style="color: var(--primary-color);">Compétences développées :</h4>
+                        <ul class="competence-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Installation et configuration d'équipements réseau (routeurs, commutateurs, pare-feu)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Administration de serveurs Windows et Linux</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Gestion de l'Active Directory et des services d'annuaire</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Virtualisation (VMware, Hyper-V, KVM)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Sécurisation des infrastructures (pare-feu, VPN, authentification)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Supervision et monitoring des systèmes</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Gestion de la sauvegarde et de la continuité d'activité</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-4">
+                            <h5 style="color: var(--primary-color);">Débouchés professionnels :</h5>
+                            <p style="color: var(--text-dark);">
+                                Administrateur réseau, Administrateur système, Technicien support informatique, 
+                                Administrateur sécurité, Technicien d'infrastructure, Administrateur cloud.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Spécialité SLAM -->
+                    <div class="branch-card slam">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="branch-icon">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <div>
+                                <h3 class="branch-title mb-0">SLAM</h3>
+                                <p class="branch-subtitle mb-0">Solutions Logicielles et Applications Métier</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-4" style="line-height: 1.8; color: var(--text-dark);">
+                            La spécialité <strong>SLAM</strong> forme des développeurs capables de concevoir, développer, déployer et maintenir 
+                            des applications et solutions logicielles adaptées aux besoins métier des organisations. Les étudiants apprennent 
+                            les langages de programmation, les bases de données, les frameworks et les méthodologies de développement.
+                        </p>
+
+                        <h4 class="mb-3" style="color: var(--primary-color);">Compétences développées :</h4>
+                        <ul class="competence-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Développement d'applications web et mobiles</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Maîtrise de langages de programmation (Java, Python, C#, PHP, JavaScript)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Conception et gestion de bases de données (SQL, NoSQL)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Utilisation de frameworks et bibliothèques (Spring, React, Angular, Laravel)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Développement orienté objet et architecture logicielle</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Gestion de projets et méthodologies agiles</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Tests, débogage et maintenance applicative</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-4">
+                            <h5 style="color: var(--primary-color);">Débouchés professionnels :</h5>
+                            <p style="color: var(--text-dark);">
+                                Développeur web, Développeur mobile, Développeur full-stack, Analyste programmeur, 
+                                Développeur d'applications métier, Intégrateur web, Concepteur développeur d'applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title text-center mb-5">Comparaison des deux spécialités</h2>
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Critères</th>
+                                    <th>SISR</th>
+                                    <th>SLAM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Orientation principale</strong></td>
+                                    <td>Infrastructure et réseaux</td>
+                                    <td>Développement logiciel</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Technologies principales</strong></td>
+                                    <td>Cisco, Windows Server, Linux, VMware, Active Directory</td>
+                                    <td>Langages de programmation, Frameworks, Bases de données</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Profil recherché</strong></td>
+                                    <td>Technicien système et réseau</td>
+                                    <td>Développeur et programmeur</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Environnement de travail</strong></td>
+                                    <td>Serveurs, équipements réseau, datacenter</td>
+                                    <td>IDE, outils de développement, environnement de test</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Missions principales</strong></td>
+                                    <td>Installation, configuration, maintenance, supervision</td>
+                                    <td>Conception, développement, tests, déploiement</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Poursuite d'études</strong></td>
+                                    <td>Licence pro Réseaux, Master Informatique spécialité Réseaux</td>
+                                    <td>Licence pro Développement, Master Informatique spécialité Logiciel</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="info-card">
+                        <h3 class="mb-4" style="color: var(--primary-color);">
+                            <i class="bi bi-book"></i> Programme commun aux deux spécialités
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 style="color: var(--secondary-color);">Enseignements généraux :</h5>
+                                <ul>
+                                    <li>Culture générale et expression</li>
+                                    <li>Anglais</li>
+                                    <li>Mathématiques</li>
+                                    <li>Algorithmique appliquée</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 style="color: var(--secondary-color);">Enseignements professionnels :</h5>
+                                <ul>
+                                    <li>Culture économique, juridique et managériale</li>
+                                    <li>Mathématiques appliquées</li>
+                                    <li>Support et mise à disposition de services informatiques</li>
+                                    <li>Cybersécurité des services informatiques</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="mb-4" style="color: var(--primary-color);">
+                            <i class="bi bi-briefcase"></i> Stages et projets
+                        </h3>
+                        <p style="line-height: 1.8; color: var(--text-dark);">
+                            La formation BTS SIO comprend <strong>12 à 16 semaines de stage</strong> réparties sur les deux années. 
+                            Les étudiants réalisent également des projets pratiques en entreprise ou en laboratoire, permettant de mettre 
+                            en application les compétences acquises. Ces expériences professionnelles sont essentielles pour l'obtention 
+                            du diplôme et facilitent l'insertion professionnelle.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="mb-4" style="color: var(--primary-color);">
+                            <i class="bi bi-mortarboard"></i> Modalités d'évaluation
+                        </h3>
+                        <p style="line-height: 1.8; color: var(--text-dark);">
+                            Le BTS SIO est évalué par un <strong>contrôle continu</strong> et des <strong>épreuves finales</strong>. 
+                            Les épreuves E5 et E6 sont des épreuves pratiques qui permettent d'évaluer les compétences professionnelles 
+                            des étudiants à travers des projets concrets. L'épreuve E5 porte sur les projets réalisés en entreprise, 
+                            tandis que l'épreuve E6 consiste en une situation professionnelle simulée.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Portfolio Administrateur Réseau. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
+
