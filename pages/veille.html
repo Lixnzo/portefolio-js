@@ -163,6 +163,99 @@
         #rss-status {
             min-height: 1.5rem;
         }
+        #rss-refresh-btn {
+            border-color: var(--border, rgba(34,211,238,0.2));
+            color: var(--muted, #94a3b8);
+            background: transparent;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        #rss-refresh-btn:hover {
+            border-color: var(--primary, #22d3ee);
+            color: var(--primary, #22d3ee);
+            background: rgba(34, 211, 238, 0.06);
+        }
+        #rss-timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            white-space: nowrap;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        /* ── Responsive ──────────────────────── */
+
+        /* Tablette (< 768px) */
+        @media (max-width: 767.98px) {
+            .article-title {
+                font-size: 1.25rem;
+            }
+            .filter-section {
+                padding: 1.5rem;
+            }
+            .veille-article {
+                padding: 1.5rem;
+            }
+            .veille-method-card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Mobile (< 576px) */
+        @media (max-width: 575.98px) {
+            .article-title {
+                font-size: 1.05rem;
+            }
+            .filter-section {
+                padding: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            .filter-section h3 {
+                font-size: 1.1rem;
+            }
+            .veille-article {
+                padding: 1rem;
+            }
+            .article-header {
+                margin-bottom: 0.75rem;
+                gap: 0.5rem;
+            }
+            .article-date {
+                white-space: normal;
+                font-size: 0.78rem;
+            }
+            .article-description {
+                font-size: 0.85rem;
+                line-height: 1.65;
+                margin-bottom: 1rem;
+            }
+            /* Timer trop long sur petit écran */
+            #rss-timer {
+                display: none;
+            }
+            /* La zone titre + refresh passe en colonne */
+            .filter-section > div:first-child {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            /* Bouton rafraîchir seul, pleine largeur */
+            #rss-refresh-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .veille-method-card {
+                padding: 1rem;
+            }
+            .veille-method-card ul {
+                padding-left: 1.1rem;
+            }
+            .veille-method-card li {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -212,39 +305,62 @@
                 </ol>
             </nav>
             <h1 class="display-4 fw-bold mb-3">Veille Technologique</h1>
-            <p class="lead mb-0">Actualité cybersécurité en direct via flux RSS : agrégation de sources reconnues, résumés issus des descriptions des articles, thématique renforcée autour de l’IA et des menaces / défenses.</p>
+            <p class="lead mb-0">9 flux RSS agrégés en temps réel (FR &amp; EN) : CERT-FR, The Hacker News, BleepingComputer, Krebs on Security, Sophos, Kaspersky, ZATAZ, ZDNet France… Cache 30 min, auto-refresh, recherche par mot-clé et badge « Nouveau ».</p>
         </div>
     </div>
 
     <section class="py-5">
         <div class="container">
             <div class="filter-section">
-                <h3 class="mb-4">Filtrer par thème</h3>
-                <p class="text-muted small mb-3">Les catégories sont déduites automatiquement des titres et résumés (mots-clés IA, cloud, réseau, etc.).</p>
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+                    <div>
+                        <h3 class="mb-1">Filtrer par thème</h3>
+                        <p class="text-muted small mb-0">Catégories déduites automatiquement des titres et résumés.</p>
+                    </div>
+                    <div class="d-flex gap-2 align-items-center">
+                        <span id="rss-timer" class="text-muted small"></span>
+                        <button id="rss-refresh-btn" class="btn btn-outline-secondary btn-sm" title="Forcer le rechargement des flux">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Rafraîchir
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="search" id="veille-search" class="form-control" placeholder="Rechercher un article, une technologie, une source…" autocomplete="off">
+                </div>
                 <div class="d-flex flex-wrap">
                     <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="reseau">Réseau</button>
                     <button class="filter-btn" data-filter="securite">Cybersécurité</button>
-                    <button class="filter-btn" data-filter="virtualisation">Virtualisation</button>
-                    <button class="filter-btn" data-filter="cloud">Cloud</button>
-                    <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
                     <button class="filter-btn" data-filter="hacking-ia">Cybersécurité & IA</button>
+                    <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud</button>
+                    <button class="filter-btn" data-filter="reseau">Réseau</button>
+                    <button class="filter-btn" data-filter="virtualisation">Virtualisation</button>
                 </div>
             </div>
 
             <div class="veille-method-card">
-                <h3 class="h5 mb-3"><i class="bi bi-diagram-3 me-2 text-primary"></i>Méthodologie de veille</h3>
-                <ul class="mb-0 ps-3">
-                    <li class="mb-2"><strong>Flux RSS réels</strong> : agrégation de plusieurs sources spécialisées (The Hacker News, BleepingComputer, Krebs on Security, Dark Reading).</li>
-                    <li class="mb-2"><strong>Résumés</strong> : texte nettoyé et raccourci à partir du champ description de chaque flux (aperçu éditorial fourni par la source).</li>
-                    <li><strong>API</strong> : conversion RSS → JSON via <a href="https://rss2json.com" target="_blank" rel="noopener noreferrer">rss2json</a> pour contourner les restrictions navigateur (CORS) sur les fichiers XML bruts.</li>
-                </ul>
+                <h3 class="h5 mb-3"><i class="bi bi-diagram-3 me-2 text-primary"></i>Méthodologie de veille automatisée</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <ul class="mb-0 ps-3">
+                            <li class="mb-2"><strong>9 flux RSS</strong> : sources EN et FR — The Hacker News, BleepingComputer, Krebs on Security, Sophos Naked Security, Kaspersky Securelist, <strong>CERT-FR (ANSSI)</strong>, ZATAZ, ZDNet France, Le Monde Informatique.</li>
+                            <li class="mb-2"><strong>Résumés automatiques</strong> : texte nettoyé depuis le champ <code>description</code> de chaque flux (aucun contenu généré).</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="mb-0 ps-3">
+                            <li class="mb-2"><strong>Cache 30 min</strong> : stockage <code>localStorage</code> pour éviter les limites d'API et accélérer les chargements.</li>
+                            <li class="mb-2"><strong>Auto-refresh</strong> : les flux sont rechargés automatiquement toutes les 30 minutes.</li>
+                            <li><strong>Double proxy</strong> : <a href="https://rss2json.com" target="_blank" rel="noopener noreferrer">rss2json</a> en priorité, fallback AllOrigins si indisponible (CORS).</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <p id="rss-status" class="mb-3 small" aria-live="polite"></p>
 
             <div class="row">
-                <div class="col-lg-10 mx-auto" id="rss-articles-container">
+                <div class="col-12 col-lg-10 mx-auto" id="rss-articles-container">
                     <!-- Articles injectés par veille-rss.js -->
                 </div>
             </div>
@@ -253,42 +369,34 @@
 
     <section class="tools-section">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Outils de Veille Utilisés</h2>
+            <h2 class="section-title text-center mb-5">Sources &amp; Outils de Veille</h2>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-rss"></i>
-                        </div>
-                        <h4>Flux RSS</h4>
-                        <p>Suivi des flux RSS des principaux sites technologiques</p>
+                        <div class="tool-icon"><i class="bi bi-shield-lock"></i></div>
+                        <h4>CERT-FR / ANSSI</h4>
+                        <p>Alertes et avis officiels de cybersécurité du gouvernement français</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-twitter"></i>
-                        </div>
-                        <h4>Twitter/X</h4>
-                        <p>Suivi des experts et communautés sur les réseaux sociaux</p>
+                        <div class="tool-icon"><i class="bi bi-rss"></i></div>
+                        <h4>9 Flux RSS automatisés</h4>
+                        <p>The Hacker News, BleepingComputer, Krebs, Sophos, Securelist, ZATAZ, ZDNet FR…</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-linkedin"></i>
-                        </div>
-                        <h4>LinkedIn</h4>
-                        <p>Réseau professionnel et groupes spécialisés</p>
+                        <div class="tool-icon"><i class="bi bi-arrow-repeat"></i></div>
+                        <h4>Mise à jour auto</h4>
+                        <p>Rafraîchissement automatique toutes les 30 min avec cache navigateur</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-bookmark-heart"></i>
-                        </div>
-                        <h4>Bookmarks</h4>
-                        <p>Organisation et sauvegarde des articles pertinents</p>
+                        <div class="tool-icon"><i class="bi bi-search"></i></div>
+                        <h4>Recherche en direct</h4>
+                        <p>Filtrage instantané par mot-clé sur les titres, résumés et sources</p>
                     </div>
                 </div>
             </div>

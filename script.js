@@ -1,26 +1,29 @@
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Navigation smooth scroll
     initSmoothScroll();
-    
+
     // Navbar scroll effect
     initNavbarScroll();
-    
+
     // Compteurs animés
     initCounters();
-    
+
     // Barres de progression des compétences
     initSkillBars();
-    
+
     // Formulaire de contact
     initContactForm();
-    
+
     // Bouton scroll to top
     initScrollToTop();
-    
+
     // Animation des éléments au scroll
     initScrollAnimations();
+
+    // Effet typing sur le hero (si présent)
+    initHeroTyping();
 });
 
 // Navigation smooth scroll
@@ -275,6 +278,39 @@ function initScrollAnimations() {
         element.style.transition = 'all 0.6s ease';
         observer.observe(element);
     });
+}
+
+// ── Effet typing sur le hero ────────────────────────────────
+function initHeroTyping() {
+    const lead = document.querySelector('.hero-section .lead');
+    if (!lead) return;
+
+    const fullText = lead.childNodes[0] ? lead.childNodes[0].textContent.trim() : '';
+    if (!fullText) return;
+
+    // Retire le curseur du flux normal (il est dans le <span>)
+    const cursorEl = lead.querySelector('.cursor');
+
+    // Vide le noeud texte initial
+    if (lead.childNodes[0] && lead.childNodes[0].nodeType === Node.TEXT_NODE) {
+        lead.childNodes[0].textContent = '';
+    }
+
+    let i = 0;
+    const speed = 28; // ms par caractère
+
+    function type() {
+        if (i <= fullText.length) {
+            if (lead.childNodes[0] && lead.childNodes[0].nodeType === Node.TEXT_NODE) {
+                lead.childNodes[0].textContent = fullText.slice(0, i);
+            }
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    // Démarre après le délai des animations fade-in
+    setTimeout(type, 650);
 }
 
 // Ajout des animations CSS dynamiques
