@@ -119,6 +119,22 @@
         .pdf-download-btn i {
             font-size: 1.2rem;
         }
+        .pdf-preview-container {
+            margin-top: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            display: none;
+        }
+        .pdf-preview-container.visible {
+            display: block;
+        }
+        .pdf-preview-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -174,127 +190,42 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title mb-4">Activités Réalisées</h2>
-                    
-                    <!-- Activité 1 - Mission 1 -->
-                    <div class="activity-card">
-                        <div class="activity-icon">
-                            <i class="bi bi-router"></i>
-                        </div>
-                        <h3 class="activity-title">Mission 1 - Restructuration de l'Infrastructure de StadiumCompany</h3>
-                        <p class="activity-description">
-                            Restructuration complète de l'infrastructure réseau de StadiumCompany pour résoudre les problèmes de bande passante 
-                            et de gestion du trafic. Conception et mise en place d'une infrastructure réseau moderne avec segmentation (VLAN), 
-                            configuration uniforme des équipements Cisco, et interconnexion sécurisée entre les sites (stade, billetterie, magasin). 
-                            Cette restructuration permet à StadiumCompany d'introduire de nouvelles technologies et d'organiser des concerts.
-                        </p>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="bi bi-check-circle-fill detail-icon"></i>
-                                <div>
-                                    <strong>Contexte :</strong> Mission 1 - Restructuration de l'Infrastructure de StadiumCompany. 
-                                    StadiumCompany gère un grand stade avec 170 employés à temps plein répartis dans 7 services (Administration, Équipes, WiFi, 
-                                    Caméra IP, VIP-Presse, Fournisseurs, Restaurant), plus 80 intérimaires pour les événements. Le réseau initial avait été mis en place 
-                                    lors de la construction mais n'avait pas évolué avec les besoins de l'entreprise, causant des problèmes de bande passante. 
-                                    Le stade est construit sur deux niveaux avec des locaux techniques reliés par des câbles à fibre optique.
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-bullseye detail-icon"></i>
-                                <div>
-                                    <strong>Objectif de la mission :</strong> Restructurer l'infrastructure réseau de StadiumCompany pour résoudre les problèmes 
-                                    de bande passante et de gestion du trafic, permettre l'introduction de nouvelles technologies et l'organisation de concerts. 
-                                    Mettre en place une segmentation réseau efficace pour les 7 services, configurer uniformément les équipements Cisco, 
-                                    et créer une solution d'interconnexion efficace entre les sites (stade, billetterie, magasin). Utiliser la plage d'adresses IP 
-                                    172.20.0.0/22 pour simplifier la gestion des ressources réseau.
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-calendar-check detail-icon"></i>
-                                <div>
-                                    <strong>Période :</strong> Septembre 2025 - Octobre 2025
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-list-check detail-icon"></i>
-                                <div>
-                                    <strong>Actions réalisées :</strong>
-                                    <ul class="mt-2 mb-0">
-                                        <li>Analyse de l'infrastructure réseau existante et identification des problèmes de bande passante</li>
-                                        <li>Conception d'une architecture réseau restructurée avec segmentation pour les 7 services</li>
-                                        <li>Configuration uniforme des équipements Cisco (routeurs et commutateurs) sur tous les sites</li>
-                                        <li>Mise en place de la segmentation réseau (VLAN) pour séparer les services et améliorer la sécurité</li>
-                                        <li>Configuration de la plage d'adresses IP 172.20.0.0/22 pour simplifier la gestion</li>
-                                        <li>Mise en place des interconnexions entre le site du stade et les sites distants (billetterie et magasin via DSL)</li>
-                                        <li>Configuration des équipements réseau sur les deux niveaux du stade avec câbles à fibre optique</li>
-                                        <li>Optimisation de la gestion du trafic pour supporter les nouveaux besoins (concerts, nouvelles technologies)</li>
-                                        <li>Documentation complète de la nouvelle architecture réseau et des configurations</li>
-                                        <li>Tests de performance et validation de la nouvelle infrastructure</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="bi bi-trophy detail-icon"></i>
-                                <div>
-                                    <strong>Compétences développées :</strong>
-                                    <div class="mt-2">
-                                        <span class="competence-badge">Cisco</span>
-                                        <span class="competence-badge">VLAN</span>
-                                        <span class="competence-badge">Architecture réseau</span>
-                                        <span class="competence-badge">Routage</span>
-                                        <span class="competence-badge">Interconnexion</span>
-                                        <span class="competence-badge">Planification</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pdf-download">
-                            <a href="../assets/pdf/BTS_SIO_Annexes_E6_1-3-4.pdf" class="pdf-download-btn" target="_blank" download>
-                                <i class="bi bi-file-earmark-pdf"></i>
-                                Télécharger le PDF de l'activité
-                            </a>
-                        </div>
-                    </div>
+            <!-- Situations Professionnelles -->
+            <h2 class="section-title mb-4 text-center">Situations Professionnelles</h2>
+            <div class="row g-4">
 
-                    <!-- Activité 2 - Mission 2 -->
-                    <div class="activity-card">
+                <!-- SP 1 -->
+                <div class="col-md-6">
+                    <div class="activity-card h-100">
                         <div class="activity-icon">
-                            <i class="bi bi-server"></i>
+                            <i class="bi bi-briefcase"></i>
                         </div>
-                        <h3 class="activity-title">Mission 2 - Infrastructure, Configuration et Administration des Services Informatiques</h3>
+                        <h3 class="activity-title">Situation Professionnelle 1 — Thème 7 : Stagiaires</h3>
                         <p class="activity-description">
-                            Configuration et administration de l'infrastructure des services informatiques de StadiumCompany au site du stade. 
-                            Mise en place et gestion du service Active Directory, des serveurs DNS (primaire et secondaire), du service DHCP, 
-                            du stockage des fichiers utilisateurs, et du serveur RSync. Organisation des utilisateurs par service dans des unités 
-                            organisationnelles et application de politiques de sécurité via les GPO.
+                            Prise en charge de l'intégration informatique des stagiaires au sein de StadiumCompany : création des comptes,
+                            attribution des droits d'accès, configuration des postes de travail et accompagnement à la prise en main des outils.
                         </p>
                         <div class="activity-details">
                             <div class="detail-item">
                                 <i class="bi bi-check-circle-fill detail-icon"></i>
                                 <div>
-                                    <strong>Contexte :</strong> Mission 2 - Infrastructure, Configuration et Administration des Services Informatiques de StadiumCompany. 
-                                    Administration des services informatiques au site du stade pour les 170 employés répartis dans 7 services. 
-                                    Gestion du domaine Active Directory Stadiumcompany.com, des serveurs DNS (primaire Windows Server 2022 et secondaire Linux Debian ou Windows Server), 
-                                    du service DHCP, du stockage des fichiers utilisateurs, et du serveur RSync. Les utilisateurs sont organisés par service dans des unités 
-                                    organisationnelles (UO) avec des groupes d'utilisateurs (G_xxxx) et des administrateurs de service (GP_Admin).
+                                    <strong>Contexte :</strong> StadiumCompany accueille régulièrement des stagiaires au sein de ses différents
+                                    services. Ces arrivées nécessitent une prise en charge informatique rapide et structurée afin de garantir
+                                    l'accès aux ressources de l'entreprise dans le respect de la politique de sécurité en vigueur.
                                 </div>
                             </div>
                             <div class="detail-item">
                                 <i class="bi bi-bullseye detail-icon"></i>
                                 <div>
-                                    <strong>Objectif de la mission :</strong> Assurer la configuration et l'administration efficace des services informatiques 
-                                    de StadiumCompany. Gérer l'authentification des utilisateurs via Active Directory, la résolution des noms de domaine via DNS, 
-                                    l'attribution automatique des adresses IP via DHCP, le stockage centralisé des fichiers utilisateurs, et la synchronisation des données. 
-                                    Organiser les utilisateurs par service et appliquer des politiques de sécurité cohérentes pour garantir la sécurité et la productivité 
-                                    des 7 services de l'entreprise.
+                                    <strong>Objectif :</strong> Assurer l'intégration informatique complète des stagiaires : création des comptes
+                                    Active Directory, attribution des droits selon le service d'accueil, configuration du poste de travail
+                                    et accès aux ressources partagées.
                                 </div>
                             </div>
                             <div class="detail-item">
                                 <i class="bi bi-calendar-check detail-icon"></i>
                                 <div>
-                                    <strong>Période :</strong> Octobre 2025 - Novembre 2025
+                                    <strong>Période :</strong> Novembre 2025 — Décembre 2025
                                 </div>
                             </div>
                             <div class="detail-item">
@@ -302,19 +233,12 @@
                                 <div>
                                     <strong>Actions réalisées :</strong>
                                     <ul class="mt-2 mb-0">
-                                        <li>Configuration et administration du service Active Directory pour le domaine Stadiumcompany.com</li>
-                                        <li>Organisation des utilisateurs par service dans des unités organisationnelles (UO)</li>
-                                        <li>Création et gestion des groupes d'utilisateurs par service (G_xxxx) et des administrateurs (GP_Admin)</li>
-                                        <li>Configuration des logins utilisateurs (première lettre du prénom + nom de famille, avec chiffre en cas de doublon)</li>
-                                        <li>Mise en place des dossiers personnels et profils centralisés pour chaque utilisateur</li>
-                                        <li>Configuration du serveur DNS primaire Windows Server 2022 (zones directes stadiumcompany.com et inverses 172.20.0.10)</li>
-                                        <li>Configuration du serveur DNS secondaire (Linux Debian ou Windows Server) pour la redondance</li>
-                                        <li>Configuration du service DHCP avec plage d'adresses réservée sur 172.20.0.10 et options de routeur/DNS</li>
-                                        <li>Configuration du stockage des fichiers utilisateurs sur le serveur DNS primaire</li>
-                                        <li>Configuration et administration du serveur RSync pour la synchronisation de fichiers</li>
-                                        <li>Mise en place de la politique de complexité des mots de passe au niveau du domaine</li>
-                                        <li>Configuration des GPO (Group Policy Objects) pour appliquer des politiques de sécurité aux machines</li>
-                                        <li>Support et résolution d'incidents liés aux services informatiques pour les 7 services</li>
+                                        <li>Création des comptes utilisateurs dans Active Directory selon la convention de nommage</li>
+                                        <li>Affectation des utilisateurs dans les unités organisationnelles (UO) des services concernés</li>
+                                        <li>Attribution des droits d'accès aux dossiers partagés et ressources réseau</li>
+                                        <li>Configuration et remise en état des postes de travail dédiés aux stagiaires</li>
+                                        <li>Application des GPO correspondant au profil stagiaire (restrictions, accès limités)</li>
+                                        <li>Documentation des procédures d'intégration et de clôture de compte</li>
                                     </ul>
                                 </div>
                             </div>
@@ -324,25 +248,104 @@
                                     <strong>Compétences développées :</strong>
                                     <div class="mt-2">
                                         <span class="competence-badge">Active Directory</span>
-                                        <span class="competence-badge">Windows Server 2022</span>
-                                        <span class="competence-badge">DNS</span>
-                                        <span class="competence-badge">DHCP</span>
-                                        <span class="competence-badge">Linux Debian</span>
                                         <span class="competence-badge">GPO</span>
-                                        <span class="competence-badge">RSync</span>
+                                        <span class="competence-badge">Gestion des accès</span>
+                                        <span class="competence-badge">Support utilisateur</span>
+                                        <span class="competence-badge">Windows Server</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="pdf-download">
-                            <a href="../assets/pdf/BTS_SIO_Annexes_E6_2-3-4.pdf" class="pdf-download-btn" target="_blank" download>
-                                <i class="bi bi-file-earmark-pdf"></i>
-                                Télécharger le PDF de l'activité
+                        <div class="pdf-download d-flex flex-wrap gap-3 align-items-center">
+                            <button class="pdf-download-btn" onclick="togglePdfPreview('sp1-preview', this)" style="cursor:pointer; border:none;">
+                                <i class="bi bi-eye"></i> Aperçu
+                            </button>
+                            <a href="../assets/pdf/E6_RP1_Theme7_Stagiaires_v3.pdf" class="pdf-download-btn" target="_blank" download>
+                                <i class="bi bi-file-earmark-pdf"></i> Télécharger le PDF
                             </a>
                         </div>
+                        <div id="sp1-preview" class="pdf-preview-container">
+                            <iframe src="../assets/pdf/E6_RP1_Theme7_Stagiaires_v3.pdf" title="Situation Professionnelle 1"></iframe>
+                        </div>
                     </div>
-
                 </div>
+
+                <!-- SP 2 -->
+                <div class="col-md-6">
+                    <div class="activity-card h-100">
+                        <div class="activity-icon">
+                            <i class="bi bi-briefcase-fill"></i>
+                        </div>
+                        <h3 class="activity-title">Situation Professionnelle 2 — Thème 7 : Stagiaires</h3>
+                        <p class="activity-description">
+                            Gestion de la fin de stage et clôture des accès informatiques des stagiaires : désactivation des comptes,
+                            archivage des données et restitution du matériel dans le respect des procédures de sécurité de StadiumCompany.
+                        </p>
+                        <div class="activity-details">
+                            <div class="detail-item">
+                                <i class="bi bi-check-circle-fill detail-icon"></i>
+                                <div>
+                                    <strong>Contexte :</strong> À l'issue de leur période de stage, les stagiaires doivent voir leurs accès
+                                    informatiques clôturés de manière sécurisée. Cette opération implique la désactivation des comptes,
+                                    la récupération des données et la remise en condition du matériel pour une prochaine utilisation.
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-bullseye detail-icon"></i>
+                                <div>
+                                    <strong>Objectif :</strong> Sécuriser la fin de stage en désactivant les comptes Active Directory,
+                                    archivant les données utilisateurs, révoquant les droits d'accès et remettant en état les postes
+                                    de travail pour les futurs stagiaires.
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-calendar-check detail-icon"></i>
+                                <div>
+                                    <strong>Période :</strong> Décembre 2025 — Janvier 2026
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-list-check detail-icon"></i>
+                                <div>
+                                    <strong>Actions réalisées :</strong>
+                                    <ul class="mt-2 mb-0">
+                                        <li>Désactivation des comptes Active Directory en fin de période de stage</li>
+                                        <li>Révocation des droits d'accès aux ressources partagées et dossiers réseau</li>
+                                        <li>Archivage des données personnelles selon la politique de rétention de l'entreprise</li>
+                                        <li>Réinitialisation et remise en état des postes de travail (réinstallation, mise à jour)</li>
+                                        <li>Mise à jour de l'inventaire du parc informatique dans GLPI</li>
+                                        <li>Documentation du bilan des interventions et retours d'expérience</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="bi bi-trophy detail-icon"></i>
+                                <div>
+                                    <strong>Compétences développées :</strong>
+                                    <div class="mt-2">
+                                        <span class="competence-badge">Active Directory</span>
+                                        <span class="competence-badge">GLPI</span>
+                                        <span class="competence-badge">Sécurité des accès</span>
+                                        <span class="competence-badge">Gestion de parc</span>
+                                        <span class="competence-badge">Windows Server</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdf-download d-flex flex-wrap gap-3 align-items-center">
+                            <button class="pdf-download-btn" onclick="togglePdfPreview('sp2-preview', this)" style="cursor:pointer; border:none;">
+                                <i class="bi bi-eye"></i> Aperçu
+                            </button>
+                            <a href="../assets/pdf/E6_RP2_Theme7_Stagiaires_v2.pdf" class="pdf-download-btn" target="_blank" download>
+                                <i class="bi bi-file-earmark-pdf"></i> Télécharger le PDF
+                            </a>
+                        </div>
+                        <div id="sp2-preview" class="pdf-preview-container">
+                            <iframe src="../assets/pdf/E6_RP2_Theme7_Stagiaires_v2.pdf" title="Situation Professionnelle 2"></iframe>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -360,6 +363,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+        function togglePdfPreview(id, btn) {
+            const container = document.getElementById(id);
+            const isVisible = container.classList.toggle('visible');
+            const icon = btn.querySelector('i');
+            if (isVisible) {
+                icon.className = 'bi bi-eye-slash';
+                btn.lastChild.textContent = ' Masquer';
+            } else {
+                icon.className = 'bi bi-eye';
+                btn.lastChild.textContent = ' Aperçu';
+            }
+        }
+    </script>
 </body>
 </html>
 

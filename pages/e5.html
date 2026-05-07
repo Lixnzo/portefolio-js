@@ -93,6 +93,41 @@
         .breadcrumb-nav a:hover {
             color: white;
         }
+        .pdf-preview-container {
+            margin-top: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            display: none;
+        }
+        .pdf-preview-container.visible {
+            display: block;
+        }
+        .pdf-preview-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+        .preview-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .preview-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -151,18 +186,26 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
 
-
-                         <div class="project-header">
+                    <div class="project-list-item">
+                        <div class="project-header">
                             <div>
-                                <h3 class="project-title">Tableau de synthese </h3>
+                                <h3 class="project-title">Tableau de synthèse</h3>
                             </div>
                         </div>
                         <p class="project-description">
-                            Les réalisation durant ma formation
+                            Les réalisations durant ma formation.
                         </p>
-                        <a href="../assets/pdf/BTS_SIO_Annexe_VI.5_Epreuve-E5-synthe_se_2026.pdf" class="download-btn" download>
-                            <i class="bi bi-download"></i> Télécharger le projet (PDF)
-                        </a>
+                        <div class="d-flex flex-wrap gap-3 align-items-center">
+                            <button class="preview-btn" onclick="togglePdfPreview('synthese-preview', this)">
+                                <i class="bi bi-eye"></i> Aperçu du tableau
+                            </button>
+                            <a href="../assets/pdf/BTS_SIO_Annexe_VI.5_Epreuve-E5-synthe_se_2026.pdf" class="download-btn" download>
+                                <i class="bi bi-download"></i> Télécharger (PDF)
+                            </a>
+                        </div>
+                        <div id="synthese-preview" class="pdf-preview-container">
+                            <iframe src="../assets/pdf/BTS_SIO_Annexe_VI.5_Epreuve-E5-synthe_se_2026.pdf" title="Aperçu Tableau de Synthèse"></iframe>
+                        </div>
                     </div>
 
 
@@ -672,6 +715,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+        function togglePdfPreview(id, btn) {
+            const container = document.getElementById(id);
+            const isVisible = container.classList.toggle('visible');
+            const icon = btn.querySelector('i');
+            if (isVisible) {
+                icon.className = 'bi bi-eye-slash';
+                btn.lastChild.textContent = " Masquer l’aperçu";
+            } else {
+                icon.className = 'bi bi-eye';
+                btn.lastChild.textContent = ' Aperçu du tableau';
+            }
+        }
+    </script>
 </body>
 </html>
 
