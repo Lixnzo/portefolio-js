@@ -270,6 +270,22 @@ a:hover { color: #67e8f9; }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 @keyframes spin  { to { transform: rotate(360deg); } }
 
+/* ── Sonar pulse (profile image) ────────── */
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: sonar-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sonar-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,211,238,0.32), 0 0 0 0 rgba(34,211,238,0.1); }
+  100% { box-shadow: 0 0 0 52px rgba(34,211,238,0), 0 0 0 104px rgba(34,211,238,0); }
+}
+
 /* Cursor blink */
 .cursor {
   display: inline-block;
@@ -315,10 +331,15 @@ section.bg-light    { background: var(--surface) !important; }
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 36px;
+  width: 0;
   height: 2px;
-  background: var(--primary);
+  background: linear-gradient(90deg, rgba(34,211,238,0.3), var(--primary), rgba(34,211,238,0.3));
   border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-title.is-visible::after {
+  width: 44px;
 }
 
 /* ── Stat cards ─────────────────────────── */

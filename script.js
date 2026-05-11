@@ -259,25 +259,36 @@ function initScrollToTop() {
 
 // Animations au scroll
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.skill-card, .project-card, .contact-info');
-    
-    const observer = new IntersectionObserver((entries) => {
+    const animatedElements = document.querySelectorAll('.skill-card, .project-card, .contact-info, .stat-card');
+    const titleElements   = document.querySelectorAll('.section-title');
+
+    const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, {
-        threshold: 0.1
-    });
-    
-    animatedElements.forEach(element => {
+    }, { threshold: 0.1 });
+
+    const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                titleObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    animatedElements.forEach((element, i) => {
+        const delay = (i % 4) * 0.09;
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'all 0.6s ease';
-        observer.observe(element);
+        element.style.transform = 'translateY(22px)';
+        element.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`;
+        cardObserver.observe(element);
     });
+
+    titleElements.forEach(title => titleObserver.observe(title));
 }
 
 // ── Effet typing sur le hero ────────────────────────────────

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ajay-muthukumar.github.io)",
+      "Bash(cp \"C:/Users/ibrah/Downloads/E6_RP1_Theme7_Stagiaires_v3.pdf\" \"C:/Users/ibrah/Downloads/portefolio-js-main/assets/pdf/E6_RP1_Theme7_Stagiaires_v3.pdf\")",
+      "Bash(cp \"C:/Users/ibrah/Downloads/E6_RP2_Theme7_Stagiaires_v2.pdf\" \"C:/Users/ibrah/Downloads/portefolio-js-main/assets/pdf/E6_RP2_Theme7_Stagiaires_v2.pdf\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "WebSearch",
+      "Bash(python -c \"import docx; print\\('ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python gen_oral.py)"
+    ]
+  }
+}
